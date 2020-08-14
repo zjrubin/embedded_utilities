@@ -10,15 +10,15 @@
 
 #define DEBUG_OUTPUT_MAX_SIZE 100
 
-#define debug_serial_printfln(message, ...)                                 \
-  do {                                                                      \
-    if (DEBUG_TEST) {                                                       \
-      char debug_output_buf[DEBUG_OUTPUT_MAX_SIZE];                         \
-      sprintf(debug_output_buf, "%s line:%d: " message, __func__, __LINE__, \
-              __VA_ARGS__);                                                 \
-      Serial.println(debug_output_buf);                                     \
-    }                                                                       \
+#define debug_serial_printf(message, ...)                                     \
+  do {                                                                        \
+    if (DEBUG_TEST) {                                                         \
+      Serial.printf("%s line:%d: " message, __func__, __LINE__, __VA_ARGS__); \
+    }                                                                         \
   } while (0)
+
+#define debug_serial_printfln(message, ...) \
+  debug_serial_printf(message, __VA_ARGS__)
 
 #define debug_serial_println(message) \
   do {                                \
