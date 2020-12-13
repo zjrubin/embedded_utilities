@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-#ifdef ARDUINO_DEBUG
+#if defined(ARDUINO_DEBUG) && defined(HAS_SERIAL)
 #define DEBUG_TEST 1
 #else
 #define DEBUG_TEST 0
